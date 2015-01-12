@@ -27,11 +27,15 @@ import javax.xml.bind.annotation.XmlTransient;
 @Entity
 @Table(name = "theater")
 @XmlRootElement
-@NamedQueries({
+@NamedQueries(
+{
     @NamedQuery(name = "Theater.findAll", query = "SELECT t FROM Theater t"),
     @NamedQuery(name = "Theater.findById", query = "SELECT t FROM Theater t WHERE t.id = :id"),
-    @NamedQuery(name = "Theater.findByCapacity", query = "SELECT t FROM Theater t WHERE t.capacity = :capacity")})
-public class Theater implements Serializable {
+    @NamedQuery(name = "Theater.findByCapacity", query = "SELECT t FROM Theater t WHERE t.capacity = :capacity")
+})
+public class Theater implements Serializable
+{
+
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -45,66 +49,80 @@ public class Theater implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "theaterId")
     private List<ShowTiming> showTimingList;
 
-    public Theater() {
+    public Theater()
+    {
     }
 
-    public Theater(Integer id) {
+    public Theater(Integer id)
+    {
         this.id = id;
     }
 
-    public Theater(Integer id, int capacity) {
+    public Theater(Integer id, int capacity)
+    {
         this.id = id;
         this.capacity = capacity;
     }
 
-    public Integer getId() {
+    public Integer getId()
+    {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Integer id)
+    {
         this.id = id;
     }
 
-    public int getCapacity() {
+    public int getCapacity()
+    {
         return capacity;
     }
 
-    public void setCapacity(int capacity) {
+    public void setCapacity(int capacity)
+    {
         this.capacity = capacity;
     }
 
     @XmlTransient
-    public List<ShowTiming> getShowTimingList() {
+    public List<ShowTiming> getShowTimingList()
+    {
         return showTimingList;
     }
 
-    public void setShowTimingList(List<ShowTiming> showTimingList) {
+    public void setShowTimingList(List<ShowTiming> showTimingList)
+    {
         this.showTimingList = showTimingList;
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode()
+    {
         int hash = 0;
         hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
     @Override
-    public boolean equals(Object object) {
+    public boolean equals(Object object)
+    {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Theater)) {
+        if (!(object instanceof Theater))
+        {
             return false;
         }
         Theater other = (Theater) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id)))
+        {
             return false;
         }
         return true;
     }
 
     @Override
-    public String toString() {
-        return "com.peliculas.entities.Theater[ id=" + id + " ]";
+    public String toString()
+    {
+        return id + " - " + capacity;
     }
-    
+
 }

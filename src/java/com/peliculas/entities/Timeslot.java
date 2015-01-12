@@ -28,12 +28,16 @@ import javax.xml.bind.annotation.XmlTransient;
 @Entity
 @Table(name = "timeslot")
 @XmlRootElement
-@NamedQueries({
+@NamedQueries(
+{
     @NamedQuery(name = "Timeslot.findAll", query = "SELECT t FROM Timeslot t"),
     @NamedQuery(name = "Timeslot.findById", query = "SELECT t FROM Timeslot t WHERE t.id = :id"),
     @NamedQuery(name = "Timeslot.findByStartTime", query = "SELECT t FROM Timeslot t WHERE t.startTime = :startTime"),
-    @NamedQuery(name = "Timeslot.findByEndTime", query = "SELECT t FROM Timeslot t WHERE t.endTime = :endTime")})
-public class Timeslot implements Serializable {
+    @NamedQuery(name = "Timeslot.findByEndTime", query = "SELECT t FROM Timeslot t WHERE t.endTime = :endTime")
+})
+public class Timeslot implements Serializable
+{
+
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -53,75 +57,91 @@ public class Timeslot implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "timingId")
     private List<ShowTiming> showTimingList;
 
-    public Timeslot() {
+    public Timeslot()
+    {
     }
 
-    public Timeslot(Integer id) {
+    public Timeslot(Integer id)
+    {
         this.id = id;
     }
 
-    public Timeslot(Integer id, String startTime, String endTime) {
+    public Timeslot(Integer id, String startTime, String endTime)
+    {
         this.id = id;
         this.startTime = startTime;
         this.endTime = endTime;
     }
 
-    public Integer getId() {
+    public Integer getId()
+    {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Integer id)
+    {
         this.id = id;
     }
 
-    public String getStartTime() {
+    public String getStartTime()
+    {
         return startTime;
     }
 
-    public void setStartTime(String startTime) {
+    public void setStartTime(String startTime)
+    {
         this.startTime = startTime;
     }
 
-    public String getEndTime() {
+    public String getEndTime()
+    {
         return endTime;
     }
 
-    public void setEndTime(String endTime) {
+    public void setEndTime(String endTime)
+    {
         this.endTime = endTime;
     }
 
     @XmlTransient
-    public List<ShowTiming> getShowTimingList() {
+    public List<ShowTiming> getShowTimingList()
+    {
         return showTimingList;
     }
 
-    public void setShowTimingList(List<ShowTiming> showTimingList) {
+    public void setShowTimingList(List<ShowTiming> showTimingList)
+    {
         this.showTimingList = showTimingList;
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode()
+    {
         int hash = 0;
         hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
     @Override
-    public boolean equals(Object object) {
+    public boolean equals(Object object)
+    {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Timeslot)) {
+        if (!(object instanceof Timeslot))
+        {
             return false;
         }
         Timeslot other = (Timeslot) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id)))
+        {
             return false;
         }
         return true;
     }
 
     @Override
-    public String toString() {
-        return "com.peliculas.entities.Timeslot[ id=" + id + " ]";
+    public String toString()
+    {
+        return id + "- [ " + this.startTime + "-" + this.endTime + " ]";
     }
-    
+
 }

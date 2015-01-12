@@ -23,11 +23,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "points")
 @XmlRootElement
-@NamedQueries({
+@NamedQueries(
+{
     @NamedQuery(name = "Points.findAll", query = "SELECT p FROM Points p"),
     @NamedQuery(name = "Points.findById", query = "SELECT p FROM Points p WHERE p.id = :id"),
-    @NamedQuery(name = "Points.findByPoints", query = "SELECT p FROM Points p WHERE p.points = :points")})
-public class Points implements Serializable {
+    @NamedQuery(name = "Points.findByPoints", query = "SELECT p FROM Points p WHERE p.points = :points")
+})
+public class Points implements Serializable
+{
+
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -39,57 +43,69 @@ public class Points implements Serializable {
     @Column(name = "\"POINTS\"")
     private int points;
 
-    public Points() {
+    public Points()
+    {
     }
 
-    public Points(Integer id) {
+    public Points(Integer id)
+    {
         this.id = id;
     }
 
-    public Points(Integer id, int points) {
+    public Points(Integer id, int points)
+    {
         this.id = id;
         this.points = points;
     }
 
-    public Integer getId() {
+    public Integer getId()
+    {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Integer id)
+    {
         this.id = id;
     }
 
-    public int getPoints() {
+    public int getPoints()
+    {
         return points;
     }
 
-    public void setPoints(int points) {
+    public void setPoints(int points)
+    {
         this.points = points;
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode()
+    {
         int hash = 0;
         hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
     @Override
-    public boolean equals(Object object) {
+    public boolean equals(Object object)
+    {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Points)) {
+        if (!(object instanceof Points))
+        {
             return false;
         }
         Points other = (Points) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id)))
+        {
             return false;
         }
         return true;
     }
 
     @Override
-    public String toString() {
-        return "com.peliculas.entities.Points[ id=" + id + " ]";
+    public String toString()
+    {
+        return id + " - " + points;
     }
-    
+
 }

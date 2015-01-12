@@ -28,12 +28,16 @@ import javax.xml.bind.annotation.XmlTransient;
 @Entity
 @Table(name = "movie")
 @XmlRootElement
-@NamedQueries({
+@NamedQueries(
+{
     @NamedQuery(name = "Movie.findAll", query = "SELECT m FROM Movie m"),
     @NamedQuery(name = "Movie.findById", query = "SELECT m FROM Movie m WHERE m.id = :id"),
     @NamedQuery(name = "Movie.findByName", query = "SELECT m FROM Movie m WHERE m.name = :name"),
-    @NamedQuery(name = "Movie.findByActors", query = "SELECT m FROM Movie m WHERE m.actors = :actors")})
-public class Movie implements Serializable {
+    @NamedQuery(name = "Movie.findByActors", query = "SELECT m FROM Movie m WHERE m.actors = :actors")
+})
+public class Movie implements Serializable
+{
+
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -53,75 +57,91 @@ public class Movie implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "movieId")
     private List<ShowTiming> showTimingList;
 
-    public Movie() {
+    public Movie()
+    {
     }
 
-    public Movie(Integer id) {
+    public Movie(Integer id)
+    {
         this.id = id;
     }
 
-    public Movie(Integer id, String name, String actors) {
+    public Movie(Integer id, String name, String actors)
+    {
         this.id = id;
         this.name = name;
         this.actors = actors;
     }
 
-    public Integer getId() {
+    public Integer getId()
+    {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Integer id)
+    {
         this.id = id;
     }
 
-    public String getName() {
+    public String getName()
+    {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(String name)
+    {
         this.name = name;
     }
 
-    public String getActors() {
+    public String getActors()
+    {
         return actors;
     }
 
-    public void setActors(String actors) {
+    public void setActors(String actors)
+    {
         this.actors = actors;
     }
 
     @XmlTransient
-    public List<ShowTiming> getShowTimingList() {
+    public List<ShowTiming> getShowTimingList()
+    {
         return showTimingList;
     }
 
-    public void setShowTimingList(List<ShowTiming> showTimingList) {
+    public void setShowTimingList(List<ShowTiming> showTimingList)
+    {
         this.showTimingList = showTimingList;
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode()
+    {
         int hash = 0;
         hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
     @Override
-    public boolean equals(Object object) {
+    public boolean equals(Object object)
+    {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Movie)) {
+        if (!(object instanceof Movie))
+        {
             return false;
         }
         Movie other = (Movie) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id)))
+        {
             return false;
         }
         return true;
     }
 
     @Override
-    public String toString() {
+    public String toString()
+    {
         return "com.peliculas.entities.Movie[ id=" + id + " ]";
     }
-    
+
 }
