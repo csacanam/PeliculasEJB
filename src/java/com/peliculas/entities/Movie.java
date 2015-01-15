@@ -141,7 +141,7 @@ public class Movie implements Serializable
     @Override
     public String toString()
     {
-        return "com.peliculas.entities.Movie[ id=" + id + " ]";
+        return name;
     }
 
 }

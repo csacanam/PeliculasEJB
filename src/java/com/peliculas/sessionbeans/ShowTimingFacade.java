@@ -5,7 +5,11 @@
  */
 package com.peliculas.sessionbeans;
 
+import com.peliculas.entities.Movie;
+import com.peliculas.entities.Sales;
 import com.peliculas.entities.ShowTiming;
+import com.peliculas.entities.Theater;
+import com.peliculas.entities.Timeslot;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -15,17 +19,23 @@ import javax.persistence.PersistenceContext;
  * @author csacanam
  */
 @Stateless
-public class ShowTimingFacade extends AbstractFacade<ShowTiming> {
+public class ShowTimingFacade extends AbstractFacade<ShowTiming>
+{
+
     @PersistenceContext(unitName = "PeliculasEJBPU")
     private EntityManager em;
 
     @Override
-    protected EntityManager getEntityManager() {
+    protected EntityManager getEntityManager()
+    {
         return em;
     }
 
-    public ShowTimingFacade() {
+    public ShowTimingFacade()
+    {
         super(ShowTiming.class);
     }
-    
+
+
+
 }

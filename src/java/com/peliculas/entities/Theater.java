@@ -122,7 +122,7 @@ public class Theater implements Serializable
     @Override
     public String toString()
     {
-        return id + " - " + capacity;
+        return id + " - " + capacity + " pers.";
     }
 
 }

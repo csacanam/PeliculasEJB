@@ -141,7 +141,7 @@ public class Timeslot implements Serializable
     @Override
     public String toString()
     {
-        return id + "- [ " + this.startTime + "-" + this.endTime + " ]";
+        return this.startTime + " - " + this.endTime;
     }
 
 }

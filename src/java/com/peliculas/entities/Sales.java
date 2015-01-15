@@ -25,11 +25,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "sales")
 @XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Sales.findAll", query = "SELECT s FROM Sales s"),
-    @NamedQuery(name = "Sales.findById", query = "SELECT s FROM Sales s WHERE s.id = :id"),
-    @NamedQuery(name = "Sales.findByAmount", query = "SELECT s FROM Sales s WHERE s.amount = :amount")})
-public class Sales implements Serializable {
+@NamedQueries(
+        {
+            @NamedQuery(name = "Sales.findAll", query = "SELECT s FROM Sales s"),
+            @NamedQuery(name = "Sales.findById", query = "SELECT s FROM Sales s WHERE s.id = :id"),
+            @NamedQuery(name = "Sales.findByAmount", query = "SELECT s FROM Sales s WHERE s.amount = :amount")
+        })
+public class Sales implements Serializable
+{
+
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -44,65 +48,79 @@ public class Sales implements Serializable {
     @OneToOne(optional = false)
     private ShowTiming showTiming;
 
-    public Sales() {
+    public Sales()
+    {
     }
 
-    public Sales(Integer id) {
+    public Sales(Integer id)
+    {
         this.id = id;
     }
 
-    public Sales(Integer id, double amount) {
+    public Sales(Integer id, double amount)
+    {
         this.id = id;
         this.amount = amount;
     }
 
-    public Integer getId() {
+    public Integer getId()
+    {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Integer id)
+    {
         this.id = id;
     }
 
-    public double getAmount() {
+    public double getAmount()
+    {
         return amount;
     }
 
-    public void setAmount(double amount) {
+    public void setAmount(double amount)
+    {
         this.amount = amount;
     }
 
-    public ShowTiming getShowTiming() {
+    public ShowTiming getShowTiming()
+    {
         return showTiming;
     }
 
-    public void setShowTiming(ShowTiming showTiming) {
+    public void setShowTiming(ShowTiming showTiming)
+    {
         this.showTiming = showTiming;
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode()
+    {
         int hash = 0;
         hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
     @Override
-    public boolean equals(Object object) {
+    public boolean equals(Object object)
+    {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Sales)) {
+        if (!(object instanceof Sales))
+        {
             return false;
         }
         Sales other = (Sales) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id)))
+        {
             return false;
         }
         return true;
     }
 
     @Override
-    public String toString() {
-        return "com.peliculas.entities.Sales[ id=" + id + " ]";
+    public String toString()
+    {
+        return id + " - " + amount;
     }
-    
+
 }

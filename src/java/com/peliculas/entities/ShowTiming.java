@@ -27,11 +27,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "show_timing")
 @XmlRootElement
-@NamedQueries({
+@NamedQueries(
+{
     @NamedQuery(name = "ShowTiming.findAll", query = "SELECT s FROM ShowTiming s"),
     @NamedQuery(name = "ShowTiming.findById", query = "SELECT s FROM ShowTiming s WHERE s.id = :id"),
-    @NamedQuery(name = "ShowTiming.findByDay", query = "SELECT s FROM ShowTiming s WHERE s.day = :day")})
-public class ShowTiming implements Serializable {
+    @NamedQuery(name = "ShowTiming.findByDay", query = "SELECT s FROM ShowTiming s WHERE s.day = :day")
+})
+public class ShowTiming implements Serializable
+{
+
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -54,89 +58,109 @@ public class ShowTiming implements Serializable {
     @ManyToOne(optional = false)
     private Movie movieId;
 
-    public ShowTiming() {
+    public ShowTiming()
+    {
     }
 
-    public ShowTiming(Integer id) {
+    public ShowTiming(Integer id)
+    {
         this.id = id;
     }
 
-    public ShowTiming(Integer id, int day) {
+    public ShowTiming(Integer id, int day)
+    {
         this.id = id;
         this.day = day;
     }
 
-    public Integer getId() {
+    public Integer getId()
+    {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Integer id)
+    {
         this.id = id;
     }
 
-    public int getDay() {
+    public int getDay()
+    {
         return day;
     }
 
-    public void setDay(int day) {
+    public void setDay(int day)
+    {
         this.day = day;
     }
 
-    public Sales getSales() {
+    public Sales getSales()
+    {
         return sales;
     }
 
-    public void setSales(Sales sales) {
+    public void setSales(Sales sales)
+    {
         this.sales = sales;
     }
 
-    public Timeslot getTimingId() {
+    public Timeslot getTimingId()
+    {
         return timingId;
     }
 
-    public void setTimingId(Timeslot timingId) {
+    public void setTimingId(Timeslot timingId)
+    {
         this.timingId = timingId;
     }
 
-    public Theater getTheaterId() {
+    public Theater getTheaterId()
+    {
         return theaterId;
     }
 
-    public void setTheaterId(Theater theaterId) {
+    public void setTheaterId(Theater theaterId)
+    {
         this.theaterId = theaterId;
     }
 
-    public Movie getMovieId() {
+    public Movie getMovieId()
+    {
         return movieId;
     }
 
-    public void setMovieId(Movie movieId) {
+    public void setMovieId(Movie movieId)
+    {
         this.movieId = movieId;
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode()
+    {
         int hash = 0;
         hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
     @Override
-    public boolean equals(Object object) {
+    public boolean equals(Object object)
+    {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof ShowTiming)) {
+        if (!(object instanceof ShowTiming))
+        {
             return false;
         }
         ShowTiming other = (ShowTiming) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id)))
+        {
             return false;
         }
         return true;
     }
 
     @Override
-    public String toString() {
-        return "com.peliculas.entities.ShowTiming[ id=" + id + " ]";
+    public String toString()
+    {
+        return id + " - " + day;
     }
-    
+
 }
