@@ -15,17 +15,21 @@ import javax.persistence.PersistenceContext;
  * @author csacanam
  */
 @Stateless
-public class TheaterFacade extends AbstractFacade<Theater> {
+public class TheaterFacade extends AbstractFacade<Theater>
+{
+
     @PersistenceContext(unitName = "PeliculasEJBPU")
     private EntityManager em;
 
     @Override
-    protected EntityManager getEntityManager() {
+    protected EntityManager getEntityManager()
+    {
         return em;
     }
 
-    public TheaterFacade() {
+    public TheaterFacade()
+    {
         super(Theater.class);
     }
-    
+
 }

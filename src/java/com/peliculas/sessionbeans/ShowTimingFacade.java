@@ -5,11 +5,7 @@
  */
 package com.peliculas.sessionbeans;
 
-import com.peliculas.entities.Movie;
-import com.peliculas.entities.Sales;
 import com.peliculas.entities.ShowTiming;
-import com.peliculas.entities.Theater;
-import com.peliculas.entities.Timeslot;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -35,7 +31,5 @@ public class ShowTimingFacade extends AbstractFacade<ShowTiming>
     {
         super(ShowTiming.class);
     }
-
-
 
 }

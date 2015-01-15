@@ -15,17 +15,21 @@ import javax.persistence.PersistenceContext;
  * @author csacanam
  */
 @Stateless
-public class PointsFacade extends AbstractFacade<Points> {
+public class PointsFacade extends AbstractFacade<Points>
+{
+
     @PersistenceContext(unitName = "PeliculasEJBPU")
     private EntityManager em;
 
     @Override
-    protected EntityManager getEntityManager() {
+    protected EntityManager getEntityManager()
+    {
         return em;
     }
 
-    public PointsFacade() {
+    public PointsFacade()
+    {
         super(Points.class);
     }
-    
+
 }
