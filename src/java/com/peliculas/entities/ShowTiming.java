@@ -160,7 +160,7 @@ public class ShowTiming implements Serializable
     @Override
     public String toString()
     {
-        return id + " - " + day;
+        return "ID: "+ id + " ; Día: " + day + " ; Teatro: " + theaterId.getId() + " ; Película: " + movieId.getName() + " ; Timeslot: " + timingId.toString();
     }
 
 }
